@@ -1,17 +1,7 @@
 package LockObjects_4;
 
 /**
- * Codes with minor comments are from
- * <a href="http://www.caveofprogramming.com/youtube/">
- * <em>http://www.caveofprogramming.com/youtube/</em>
- * </a>
- * <br>
- * also freely available at
- * <a href="https://www.udemy.com/java-multithreading/?couponCode=FREE">
- *     <em>https://www.udemy.com/java-multithreading/?couponCode=FREE</em>
- * </a>
- *
- * @author Z.B. Celik <celik.berkay@gmail.com>
+ * 这两个例子说明：尽量不要在方法上加说明 ，如果有两个方法都加了synchroinzed,两个方法会相互影响
  */
 public class App {
 

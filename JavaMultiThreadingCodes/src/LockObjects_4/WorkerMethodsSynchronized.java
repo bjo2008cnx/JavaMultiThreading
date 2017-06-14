@@ -31,10 +31,9 @@ public class WorkerMethodsSynchronized {
     private List<Integer> list2 = new ArrayList<>();
 
     /**
-     * synchronized, methods use different data (list1 list2) so by synchronized
-     * methods if one thread runs the stageOne other thread cannot run stageTwo
-     * at the same time because that same locks are used. Solution is using two
-     * lock Object for two shared data.
+     * synchronized, methods use different data (list1 list2) so by synchronized methods if one thread runs the stageOne other thread cannot run stageTwo
+     * at the same time because that same locks are used.
+     * Solution is using two lock Object for two shared data.
      */
     public synchronized void stageOne() {
         try {
