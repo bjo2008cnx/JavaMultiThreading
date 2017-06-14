@@ -44,14 +44,16 @@ public class App2 {
             }
         }
 
+        //ThreadPoolExecutor.shutdown()不是一个阻塞方法。pool.shutdown()本身的执行很快，执行完后线程池可能仍处于运行中
         executor.shutdown();
+
         //this is ont necessary in this case .. but .. good practice :)
+        //awaitTermination()是一个阻塞方法。它必须等线程池退出后才会结束自身
         executor.awaitTermination(1, TimeUnit.DAYS);
 
         for (int i = 0; i < list.size(); i++) {
             //get returned values from call()
             System.out.println("List Values " + i + " Value: " + list.get(i));
-
         }
     }
 }
