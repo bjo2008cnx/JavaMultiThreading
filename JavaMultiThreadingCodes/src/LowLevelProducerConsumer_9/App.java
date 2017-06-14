@@ -2,16 +2,10 @@ package LowLevelProducerConsumer_9;
 
 /**
  * How to implement the Producer-Consumer pattern using "low level" techniques;
- * namely, wait, notify and synchronized. This isn't the best way to implement a
- * Producer-Consumer pattern in Java
- * (see tutorial 7 use of {@link java.util.concurrent.BlockingQueue} for
- * the best way); but this tutorial will help you to understand how to use wait
- * and notify.
+ * namely, wait, notify and synchronized. This isn't the best way to implement a  Producer-Consumer pattern in Java
+ * (see tutorial 7 use of {@link java.util.concurrent.BlockingQueue} for  the best way); but this tutorial will help you to understand how to use wait and notify.
  * <br><br>
- * Codes with minor comments are from
- * <a href="http://www.caveofprogramming.com/youtube/">
- * <em>http://www.caveofprogramming.com/youtube/</em>
- * </a>
+ * Codes with minor comments are from  <a href="http://www.caveofprogramming.com/youtube/"> <em>http://www.caveofprogramming.com/youtube/</em>  </a>
  * <br>
  * also freely available at
  * <a href="https://www.udemy.com/java-multithreading/?couponCode=FREE">

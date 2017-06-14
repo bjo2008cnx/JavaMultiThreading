@@ -1,5 +1,7 @@
 package ReentrantLocks_10;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * the {@link java.util.concurrent.locks.ReentrantLock} class in Java as an
  * alternative to synchronized code blocks.
@@ -69,7 +71,7 @@ package ReentrantLocks_10;
 public class App {
 
     public static void main(String[] args) throws Exception {
-        final Runner runner = new Runner();
+        final ReentrantLocks_10.Runner runner = new Runner();
         Thread t1 = new Thread(new Runnable() {
             public void run() {
                 try {

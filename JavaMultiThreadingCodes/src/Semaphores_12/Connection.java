@@ -6,7 +6,7 @@ public class Connection {
 
     private static Connection instance = new Connection();
 
-    private Semaphore sem = new Semaphore(5, true);
+    private Semaphore sem = new Semaphore(10, true);
     private int connections = 0;
 
     private Connection() {
@@ -36,18 +36,20 @@ public class Connection {
     public void doConnect() {
         synchronized (this) { //atomic
             connections++;
-            System.out.println("Current connections (max 10 allowed): " + connections);
+            //System.out.println("当前连接数 (max 10 allowed): " + connections);
+            System.out.printf("%s:: 当前可用信号量数 (MAX 10 allowed): %d\n", Thread.currentThread().getName(), sem.availablePermits());
         }
         try {
             //do your job
-            System.out.println("Working on connections " + Thread.currentThread().getName());
+           // System.out.println("当前线程" + Thread.currentThread().getName());
             Thread.sleep(2000);
         } catch (InterruptedException ignored) {}
 
         //when exit doConnect method decrement number of connections
         synchronized (this) {//atomic
             connections--;
-            System.out.println("I'm done " + Thread.currentThread().getName() + " Connection is released , connection count: " + connections);
+            //System.out.println("" + Thread.currentThread().getName() + " 已完成，连接释放 , 当前连接数: " + connections);
+            System.out.printf("%s:: 线程释放  剩余可用信号量数 = %d\n", Thread.currentThread().getName(), sem.availablePermits());
         }
     }
 }

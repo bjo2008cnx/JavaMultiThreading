@@ -4,6 +4,9 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * 线程内latch.countDown,线程外latch.await();
+ */
 class Processor implements Runnable {
 
     private CountDownLatch latch;
@@ -17,7 +20,8 @@ class Processor implements Runnable {
 
         try {
             Thread.sleep(3000);
-        } catch (InterruptedException ignored) {}
+        } catch (InterruptedException ignored) {
+        }
         latch.countDown();
     }
 }
@@ -25,7 +29,7 @@ class Processor implements Runnable {
 public class App {
 
     public static void main(String[] args) {
-        CountDownLatch latch = new CountDownLatch(4);
+        CountDownLatch latch = new CountDownLatch(3);//如果改为4，则一直阻塞，因为latch不为0
         ExecutorService executor = Executors.newFixedThreadPool(3);
         for (int i = 0; i < 3; i++) {
             executor.submit(new Processor(latch));
