@@ -1,3 +1,8 @@
+可参考的例子：
+CallableAndFuture
+CountDownLatch
+Semaphore
+ThreadPool
 
 # Java Multithreading
 This repository will contain all the codes for the ultimate Java multithreading course by John Purcell
