@@ -15,7 +15,7 @@ package Deadlock_11;
  */
 class Account {
 
-    private int balance = 10000;
+        private int balance = 10000;
 
     public void deposit(int amount) {
         balance += amount;
