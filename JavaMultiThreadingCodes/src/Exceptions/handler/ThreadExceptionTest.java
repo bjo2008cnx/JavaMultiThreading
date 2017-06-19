@@ -11,8 +11,9 @@ public class ThreadExceptionTest {
      */
     public static void main(String[] args) {
         //下面有3中方式来执行线程。
-        testSimple();
-        testThreadFactory();
+        testSimple(); //行
+        testThreadPool(); //不行
+        testThreadFactory(); //行
     }
 
     private static void testThreadFactory() {
@@ -22,11 +23,19 @@ public class ThreadExceptionTest {
         exec.execute(new ExceptionThread());
     }
 
+    private static void testThreadPool() {
+        //第3种情况一样的，也是走的线程池，但是呢是通过ThreadFactory方式，在ThreadFactory中会对线程做一些控制，可以设置异常处理器
+        //此时是可以捕获异常的。
+        ExecutorService exec = Executors.newCachedThreadPool();
+        Thread t = new Thread(new ExceptionThread());
+        t.setUncaughtExceptionHandler(new MyUnchecckedExceptionhandler());
+        exec.execute(t);
+    }
+
     private static void testSimple() {
         //第1种按照普通的方式。这时能捕获到异常
         Thread t = new Thread(new ExceptionThread());
         t.setUncaughtExceptionHandler(new MyUnchecckedExceptionhandler());
         t.start();
     }
-
 }
