@@ -1,4 +1,4 @@
-package Atomic;// AtomicReferenceTest.java的源码
+package Atomic.simple;// AtomicReferenceTest.java的源码
 
 import java.util.concurrent.atomic.AtomicReference;
 
