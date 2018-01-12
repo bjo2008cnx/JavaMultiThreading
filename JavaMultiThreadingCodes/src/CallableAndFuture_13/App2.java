@@ -3,33 +3,7 @@ package CallableAndFuture_13;
 import java.util.ArrayList;
 import java.util.concurrent.*;
 
-/**
- * Understanding Callable
- *
- * @author Z.B. Celik <celik.berkay@gmail.com>
- */
-class MyCallable implements Callable<Integer> {
-
-    int value;
-
-    public MyCallable(int i) {
-        this.value = i;
-    }
-
-    @Override
-    public Integer call() throws Exception {
-        Integer sum = 0;
-        for (int i = 0; i < value; i++) {
-            sum += i;
-        }
-        System.out.println("Sum in Callable.Call() " + sum);
-        return sum;
-    }
-
-}
-
 public class App2 {
-
     public static void main(String[] args) throws InterruptedException {
         ArrayList<Integer> list = new ArrayList<>();
         ExecutorService executor = Executors.newCachedThreadPool();
@@ -56,4 +30,29 @@ public class App2 {
             System.out.println("List Values " + i + " Value: " + list.get(i));
         }
     }
+}
+
+/**
+ * Understanding Callable
+ *
+ * @author Z.B. Celik <celik.berkay@gmail.com>
+ */
+class MyCallable implements Callable<Integer> {
+
+    int value;
+
+    public MyCallable(int i) {
+        this.value = i;
+    }
+
+    @Override
+    public Integer call() throws Exception {
+        Integer sum = 0;
+        for (int i = 0; i < value; i++) {
+            sum += i;
+        }
+        System.out.println("Sum in Callable.Call() " + sum);
+        return sum;
+    }
+
 }
