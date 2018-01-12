@@ -11,12 +11,11 @@ public class App {
         Future<Integer> future = executor.submit(new Callable<Integer>() {
 
             @Override
-            //return value is Integer
             public Integer call() throws TimeoutException {
                 Random random = new Random();
                 int duration = random.nextInt(4000);
-                if (duration > 3000) {
-                    throw new TimeoutException("Sleeping for too long.");
+                if (duration < 1000) {
+                    throw new TimeoutException("Sleeping for too short.");
                 }
 
                 System.out.println("Starting ...");
@@ -30,11 +29,9 @@ public class App {
         });
 
         executor.shutdown();
-        //executor.awaitTermination(1, TimeUnit.DAYS);
         try {
-            //get returned value from call()
-            System.out.println("Result is: " + future.get());
-
+            System.out.println("Result is: " + future.get()); //阻塞
+            System.out.println("执行完成");
         } catch (InterruptedException ignored) {
         } catch (ExecutionException e) {
             TimeoutException ex = (TimeoutException) e.getCause();
