@@ -17,7 +17,7 @@ public class StopDemo {
             //一般会处理中断异常，这里作为例子就直接打印到控制台了
             e.printStackTrace();
         }
-        //暂停线程
+        //暂停线程 !!!
         //thread.stop();
         thread.interrupt();
         while (thread.isAlive()) {//确保线程已经终止
