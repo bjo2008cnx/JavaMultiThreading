@@ -1,3 +1,7 @@
+Base: Stop的示例。
+  stop 一个线程类似于kill一个线程
+
+
 可参考的例子：
 CallableAndFuture
 CountDownLatch
