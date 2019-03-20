@@ -1,6 +1,5 @@
-Base: Stop的示例。
-  stop 一个线程类似于kill一个线程
-
+Base: Stop的示例。  stop 一个线程类似于kill一个线程
+Race: CountDownLatch的例子。先准备，等待发令枪，最后，全部跑完再集合。需要两个latch
 
 可参考的例子：
 CallableAndFuture

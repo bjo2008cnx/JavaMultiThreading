@@ -16,7 +16,7 @@ public class WaitNotifyCase {
                         TimeUnit.SECONDS.sleep(1);
                         System.out.println("thread A do wait method");
                         lock.wait();
-                        System.out.println("wait end");
+                        System.out.println("thread A wait end");
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
